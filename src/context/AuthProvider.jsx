@@ -3,25 +3,27 @@ import { AuthContext } from "./AuthContext"
 
 export const AuthProvider = ({children}) => {
     
-    //verifica si hay token guardado
-    const [token, setToken] = useState(() => {
-    return localStorage.getItem("token")
-})
+    const [token, setToken] = useState(() => localStorage.getItem("token"));
+    // Añadimos el rol
+    const [rol, setRol] = useState(() => localStorage.getItem("rol"));
 
-    //guarda el tokenb en localstore
-    const login = (newToken) => {
-        localStorage.setItem("token",newToken)
-        setToken(newToken)
+    const login = (newToken, userRol) => {
+        localStorage.setItem("token", newToken);
+        localStorage.setItem("rol", userRol); // Guardamos el rol
+        setToken(newToken);
+        setRol(userRol);
     }
 
-    //borra el token
     const logout = () => {
-        localStorage.removeItem("token")
-        setToken(null)
+        localStorage.removeItem("token");
+        localStorage.removeItem("rol");
+        setToken(null);
+        setRol(null);
     }
 
     return (
-        <AuthContext.Provider value={{token, login, logout}}>
+        // Ahora pasamos también el rol en el value
+        <AuthContext.Provider value={{token, rol, login, logout}}>
             {children}
         </AuthContext.Provider>
     )
