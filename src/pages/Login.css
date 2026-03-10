@@ -1,0 +1,64 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;  
+    padding: 2.5rem; /* Un poco más de aire */
+    border-radius: 12px; /* Esquinas un poco más redondeadas */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* Sombra suave y difusa */
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.2s; /* Efecto suave si decides animarlo */
+}
+.login-form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.login-page {
+    display: flex;          /* Activa el modo Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    height: 100vh;          /* Ocupa el 100% de la altura de la pantalla (Viewport Height) */
+    background-color: #f0f2f5; /* Un color de fondo suave */
+    overflow: hidden;
+}
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.titulo-login{
+    text-align: center;
+    font-size: 35px;
+}
+.login-card {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Esto hace que la imagen y el form tengan el mismo redondeo */
+    max-width: 900px; /* Ajusta a tu gusto */
+    width: 90%;       /* Para que no se pegue a los bordes en móviles */
+}
+/*contenedor de imagen login*/
+.login-image-container {
+    width: 100%;
+    max-width: 450px;          /* Ancho máximo para el contenedor de la imagen */
+    height: 500px;             /* MISMA ALTURA QUE EL FORMULARIO */
+    overflow: hidden;          /* Esconde partes de la imagen si se desborda */
+    border-radius:0; /* Bordes redondeados solo a la izquierda */
+    box-shadow:none; /* Misma sombra que el formulario */
+}
+.login-image-container img {
+    width: 100%;               /* La imagen ocupa todo el ancho de su contenedor */
+    height: 100%;              /* La imagen ocupa toda la altura de su contenedor */
+    object-fit: cover;         /* Recorta la imagen para que cubra el espacio sin distorsionarse */
+    display: block;            /* Elimina espacios extra que algunos navegadores añaden a las imágenes */
+}

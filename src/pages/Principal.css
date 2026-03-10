@@ -1,0 +1,97 @@
+/* Contenedor principal que divide pantalla en dos */
+.layout-container {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Sidebar lateral */
+.sidebar {
+    width: 260px;
+    background-color: #1e293b;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el botón logout al final */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.sidebar-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #334155;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #f8fafc;
+}
+
+.rol-badge {
+    background-color: #475569;
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+}
+
+/* Navegación */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar button {
+    background: #334155;
+    border: none;
+    color: #e2e8f0;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+    font-size: 1rem;
+}
+
+.sidebar button:hover {
+    background: #475569;
+}
+
+.btn-logout {
+    background-color: #ef4444 !important;
+    margin-top: auto;
+}
+
+.btn-logout:hover {
+    background-color: #dc2626 !important;
+}
+
+/* Área de contenido principal */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f8fafc;
+    overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer del token */
+.footer-token {
+    margin-top: auto;
+    padding-top: 20px;
+    color: #94a3b8;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    border-top: 1px solid #e2e8f0;
+}
