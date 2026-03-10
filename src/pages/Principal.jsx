@@ -1,56 +1,41 @@
+import { Outlet, useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import "./Principal.css"; 
 
-const Principal = () =>  {
-    // Traemos el token y el rol (si lo agregaste al context como sugerí)
-    const { token, rol, logout } = useContext(AuthContext)
-    const navigate = useNavigate()
+export const Principal = () => {
+    const { logout, rol, token } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const manejarLogout = () => {
-        logout()
-        navigate("/login")
-    }
-
-    return  (
-        <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
-            <h1>Bienvenido 🎉</h1>
-            <p>Has ingresado como: <strong>{rol}</strong></p>
-            
-            <div style={{ background: "#f4f4f4", padding: "15px", borderRadius: "8px" }}>
-                <h2>📅 HORARIO DE LA SEMANA</h2>
-                <p>Aquí irá tu tabla o lista de horarios...</p>
-            </div>
-
-            {/* EJEMPLO DE PROTECCIÓN DE VISTA: Solo el ADMIN ve esto */}
-            {rol === "ADMIN" && (
-                <div style={{ marginTop: "20px", border: "1px solid red", padding: "10px" }}>
-                    <h3>Panel de Administrador 🛠️</h3>
-                    <button>Importar Excel de Requerimientos</button>
-                    <button>Gestionar Usuarios</button>
+    return (
+        <div className="layout-container">
+            <aside className="sidebar">
+                <div className="sidebar-header"> 
+                    <h2>Pkalab Admin</h2>
+                    {/* El rol ahora se muestra aquí y esto elimina el error de compilación */}
+                    <p className="rol-badge">Sesión: {rol}</p>
                 </div>
-            )}
 
-            <hr style={{ marginTop: "30px" }} />
-            <p><strong>Tu token de seguridad (JWT):</strong></p>
-            <div style={{ 
-                wordBreak: "break-all", 
-                backgroundColor: "#eee", 
-                padding: "10px", 
-                fontSize: "12px" 
-            }}>
-                <code>{token}</code>
-            </div>
-            
-            <br />
-            <button 
-                onClick={manejarLogout}
-                style={{ backgroundColor: "#ff4d4d", color: "white", border: "none", padding: "10px 20px", borderRadius: "5px", cursor: "pointer" }}
-            >
-                Cerrar sesión
-            </button>
+                <nav>
+                    <button onClick={() => navigate("/dashboard")}>🏠 Inicio</button>
+                    <button onClick={() => navigate("/dashboard/usuarios")}>👥 Usuarios</button>
+                    <button onClick={() => navigate("/dashboard/importar")}>📅 Importar Excel</button>
+                    <button onClick={() => navigate("/dashboard/horarios")}>📅 Gestionar Horarios</button>
+                    
+                </nav>
+
+                <button className="btn-logout" onClick={logout}>Cerrar Sesión</button>
+            </aside>
+
+            <main className="main-content">
+                {/* Aquí cargará el Inicio o cualquiera de las otras páginas */}
+                <Outlet />
+                
+                {/* Token fijo al pie */}
+                <footer className="footer-token">
+                    <small>Token: {token?.substring(0, 30)}...</small>
+                </footer>
+            </main>
         </div>
-    )
-}
-
-export default Principal                           
+    );
+};
