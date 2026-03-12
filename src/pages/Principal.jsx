@@ -21,6 +21,7 @@ export const Principal = () => {
                     <button onClick={() => navigate("/dashboard/usuarios")}>👥 Usuarios</button>
                     <button onClick={() => navigate("/dashboard/importar")}>📅 Importar Excel</button>
                     <button onClick={() => navigate("/dashboard/horarios")}>📅 Gestionar Horarios</button>
+                    <button onClick={() => navigate("/dashboard/tiendas")}>📅 Gestionar Tiendas</button>
                     
                 </nav>
 
