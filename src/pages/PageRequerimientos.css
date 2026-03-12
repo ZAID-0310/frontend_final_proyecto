@@ -1,0 +1,17 @@
+.requerimientos-container { padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.header-pkalab h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+
+.import-section { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px dashed #3498db; }
+.upload-form { display: flex; align-items: center; gap: 15px; }
+
+.tabla-pkalab { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.tabla-pkalab th { background-color: #3498db; color: white; padding: 12px; text-align: left; }
+.tabla-pkalab td { padding: 10px; border-bottom: 1px solid #ddd; }
+
+.status { padding: 5px 10px; border-radius: 15px; font-size: 0.85em; font-weight: bold; text-transform: uppercase; }
+.status.pendiente { background-color: #ffeaa7; color: #d6a316; }
+.status.asignado { background-color: #55efc4; color: #00b894; }
+
+.badge-moto { background: #e17055; color: white; padding: 3px 8px; border-radius: 5px; font-weight: bold; }
+.btn-import { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+.btn-import:hover { background: #2ecc71; }

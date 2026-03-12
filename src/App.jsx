@@ -3,7 +3,10 @@ import { PrivateRoute } from "./routes/PrivateRoute";
 import Login from "./pages/Login";
 import { Principal } from "./pages/Principal";
 import { PageUsuarios } from "./pages/PageUsuarios";
-import { Inicio } from "./pages/PageInicio"; // Asegúrate de que este nombre sea correcto
+import { Inicio } from "./pages/PageInicio";
+import { PageTiendas } from "./pages/PageTiendas";
+import {PageRequerimientos} from"./pages/PageRequerimientos";
+// Asegúrate de que este nombre sea correcto
 // Asegúrate de importar PaginaImportar si la vas a usar
 // import { PaginaImportar } from "./pages/PaginaImportar"; 
 
@@ -26,7 +29,8 @@ function App() {
           {/* Estas secciones se cargan DENTRO del Outlet de Principal */}
           <Route path="usuarios" element={<PageUsuarios />} />
           <Route path="horarios" element={<div>pagina de horarios</div>} />
-          <Route path="importar" element={<div>Página de Importación</div>} /> 
+          <Route path="importar" element={<PageRequerimientos/>} /> 
+          <Route path="tiendas" element={<PageTiendas/>}/> 
           
         </Route>
       </Routes>
